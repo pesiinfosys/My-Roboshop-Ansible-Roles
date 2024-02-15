@@ -27,3 +27,6 @@ rabbitmq.cloudevops.cloud
 
 [payment]
 payment.cloudevops.cloud
+
+[dispatch]
+dispatch.cloudevops.cloud
