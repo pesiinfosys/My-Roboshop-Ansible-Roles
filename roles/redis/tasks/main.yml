@@ -1,0 +1,16 @@
+- name: Install redis6.2
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: install-redis
+
+- name: Make redis to Remote Connection
+  ansible.builtin.replace:
+    path: /etc/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Start & Enable Redis Service
+  ansible.builtin.service:
+    name: redis
+    state: started
+    enabled: yes
