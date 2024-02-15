@@ -13,12 +13,12 @@
     path: /app
     state: directory
 
-- name: Downloading "{{component}}" Application Code
+- name: "Downloading {{component}} Application Code"
   ansible.builtin.get_url:
     url: "https://roboshop-builds.s3.amazonaws.com/{{component}}.zip"
     dest: "/tmp/{{component}}.zip"
 
-- name: Extracting "{{component}}".zip file
+- name: "Extracting {{component}}.zip file"
   ansible.builtin.unarchive:
     src: "/tmp/{{component}}.zip"
     dest: /app
