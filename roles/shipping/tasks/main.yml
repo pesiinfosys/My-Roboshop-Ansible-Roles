@@ -1,7 +1,7 @@
 - name: Installing Maven
   ansible.builtin.import_role:
     name: common
-    state: install-maven
+    tasks_from: install-maven
 
 - name: "set-up {{component}} application"
   ansible.builtin.import_role:
