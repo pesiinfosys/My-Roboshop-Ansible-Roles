@@ -1,0 +1,16 @@
+- name: Install RabbitMQ
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: install-rabbitmq
+
+- name: Enabling And Starting rabbitmq service
+  ansible.builtin.service:
+    name: rabbitmq-server
+    state: started
+    enabled: yes
+
+- name: Creating User For RabitMQ
+  ansible.builtin.shell: rabbitmqctl add_user roboshop roboshop123
+
+- name: Setting-up permissions in RabbitMQ
+  ansible.builtin.shell: rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
