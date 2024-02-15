@@ -1,0 +1,8 @@
+---
+- name: Setting-Up mongodb Server For Roboshop project
+  hosts: mongodb
+  become: yes
+  roles:
+  - mongodb
+
+

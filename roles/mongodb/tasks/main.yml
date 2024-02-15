@@ -1,0 +1,15 @@
+- name: Installing mongodb
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: install-mongodb
+
+- name: Enable Remote Access
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Restarting mongod service
+  ansible.builtin.service:
+    name: mongod
+    state: restarted
