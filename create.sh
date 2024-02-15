@@ -42,9 +42,8 @@ echo -e "$B###############################################$N" > $LOGFILE
 echo -e "$Y Script Execution At: $DATE by $(whoami)" &>> $LOGFILE
 echo -e "$B###############################################$N" >> $LOGFILE
 
-# INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "cart" "user" "shipping" "payment" "dispatch" "web")
-# INSTANCES=("redis" "mysql" "rabbitmq" "cart" "user" "shipping" "payment" "dispatch")
-INSTANCES=("mongodb" "catalogue" "web")
+INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "cart" "user" "shipping" "payment" "dispatch" "web")
+
 # CONDITION: For MongoDB and MySQL instance type is t3.small and for others t2.micro
 for i in ${INSTANCES[@]}
 do 
