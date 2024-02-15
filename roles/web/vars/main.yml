@@ -1,0 +1,5 @@
+CATALOGUE_HOST: catalogue.cloudevops.cloud
+USER_HOST: user.cloudevops.cloud
+CART_HOST: cart.cloudevops.cloud
+SHIPPING_HOST: shipping.cloudevops.cloud
+PAYMENT_HOST: payment.cloudevops.cloud
