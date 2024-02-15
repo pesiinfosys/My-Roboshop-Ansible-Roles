@@ -1,0 +1,16 @@
+- name: Copying {{component}}.service file
+  ansible.builtin.copy:
+    src: {{component}}.service
+    dest: /etc/systemd/system/{{component}}.service
+
+- name: load Systemd service
+  ansible.builtin.systemd_service:
+    name: {{component}}.service
+    state: reloaded
+  ignore_errors: yes
+
+- name: enable and starting {{component}} service
+  ansible.builtin.service:
+    name: {{component}}
+    state: started
+    enabled: yes

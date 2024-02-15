@@ -1,8 +1,8 @@
 ---
-- name: Setting-Up mongodb Server For Roboshop project
-  hosts: mongodb
+- name: Setting-Up {{component}} Server For Roboshop project
+  hosts: {{component}}
   become: yes
   roles:
-  - mongodb
+  - {{component}}
 
 

@@ -1,0 +1,25 @@
+- name: Checking System User
+  ansible.builtin.shell: id roboshop
+  register: out
+  ignore_errors: yes
+
+- name: Creating System User
+  ansible.builtin.user:
+    name: roboshop
+  when: out.rc != 0
+
+- name: Creating app Directory
+  ansible.builtin.file:
+    path: /app
+    state: directory
+
+- name: Downloading {{component}} Application Code
+  ansible.builtin.get_url:
+    url: https://roboshop-builds.s3.amazonaws.com/{{component}}.zip
+    dest: /tmp/{{component}}.zip
+
+- name: Extracting {{component}}.zip file
+  ansible.builtin.unarchive:
+    src: /tmp/{{component}}.zip
+    dest: /app
+    remote_src: yes
