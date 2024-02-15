@@ -1,0 +1,24 @@
+- name: Installing Python3.6
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: install-python
+
+- name: "set-up {{component}} application"
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-setup
+
+- name: Installing Dependencies
+  ansible.builtin.shell: pip3.6 install -r requirements.txt
+  args:
+    chdir: /app
+
+- name: Set-Up Systemd service
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd-service
+
+- name: "Re-starting {{component}} service"
+  ansible.builtin.service:
+    name: "{{component}}"
+    state: restarted
