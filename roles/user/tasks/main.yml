@@ -22,7 +22,7 @@
   ansible.builtin.import_role: 
     name: common
     tasks_from: loading-mongodb-schema
- 
+
 - name: "Re-starting {{component}} service"
   ansible.builtin.service:
     name: "{{component}}"
