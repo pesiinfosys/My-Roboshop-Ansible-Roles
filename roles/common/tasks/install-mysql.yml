@@ -1,0 +1,12 @@
+- name: Disable Existing Mysql
+  ansible.builtin.shell: yum module disable mysql -y 
+
+- name: Copying mysql.repo file
+  ansible.builtin.copy:
+    src: mysql.repo
+    dest: /etc/yum.repos.d/mysql.repo
+
+- name: Install MySQL
+  ansible.builtin.yum:
+    name: mysql-community-server
+    state: installed
