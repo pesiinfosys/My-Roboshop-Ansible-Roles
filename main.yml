@@ -1,8 +1,8 @@
 ---
-- name: Setting-Up {{component}} Server For Roboshop project
-  hosts: {{component}}
+- name: "Setting-Up {{component}} Server For Roboshop project"
+  hosts: "{{component}}"
   become: yes
   roles:
-  - {{component}}
+  - "{{component}}"
 
 

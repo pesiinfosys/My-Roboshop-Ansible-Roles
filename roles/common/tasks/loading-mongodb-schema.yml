@@ -9,4 +9,4 @@
     state: installed
 
 - name: loading schema
-  ansible.builtin.shell: mongo --host mongodb.cloudevops.cloud < /app/schema/{{component}}.js
+  ansible.builtin.shell: "mongo --host mongodb.cloudevops.cloud < /app/schema/{{component}}.js"
